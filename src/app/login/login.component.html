@@ -1,0 +1,13 @@
+<h1 style="color:rgb(76, 226, 43);text-align:center">LOGIN FORM</h1>
+<div class="container">
+    <form class="newstudent" novalidate>
+
+    EmailId:<input type="text" name="email"  required minlength="1" maxlength="5">
+    <!-- <div *ngIf="emailid.errors?.['required'] && emailid.touched">enter your id</div> -->
+    <!-- <div *ngIf="emailid.errors?.['minlength'] && emailid.touched">enter id having a minlength of 1</div> <br><br> -->
+    Password:<input type="text" name="password" required minlength="5" maxlength="8">
+        <!-- <div *ngIf="password.errors?.['required'] && password.touched">enter your pasword</div> -->
+        <!-- <div *ngIf="password.errors?.['minlength'] && password.touched">enter pasword having a minlength of 1</div> <br><br> -->
+        <button class="bg-primary">Login</button>
+    </form>
+ </div>

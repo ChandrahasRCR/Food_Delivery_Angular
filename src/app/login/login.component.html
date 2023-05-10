@@ -1,13 +1,22 @@
-<h1 style="color:rgb(76, 226, 43);text-align:center">LOGIN FORM</h1>
+<!-- <app-header></app-header> -->
 <div class="container">
-    <form class="newstudent" novalidate>
+    <form #logForm="ngForm" (ngSubmit)="submitForm(logForm.value)" novalidate >
 
-    EmailId:<input type="text" name="email"  required minlength="1" maxlength="5">
-    <!-- <div *ngIf="emailid.errors?.['required'] && emailid.touched">enter your id</div> -->
-    <!-- <div *ngIf="emailid.errors?.['minlength'] && emailid.touched">enter id having a minlength of 1</div> <br><br> -->
-    Password:<input type="text" name="password" required minlength="5" maxlength="8">
-        <!-- <div *ngIf="password.errors?.['required'] && password.touched">enter your pasword</div> -->
-        <!-- <div *ngIf="password.errors?.['minlength'] && password.touched">enter pasword having a minlength of 1</div> <br><br> -->
-        <button class="bg-primary">Login</button>
-    </form>
- </div>
+<tr>
+<td id="effect1">UserId</td>
+<td id="effect2"><input type="text" #UserId="ngModel" name="UserId" ngModel required minlength="1" maxlength="5"></td>
+<div *ngIf="UserId.errors?.['required'] && UserId.touched">Enter the UserId</div>
+
+<div *ngIf="UserId.errors?.['minlength'] && UserId.touched">Please Enter Minimum of 3 numbers</div>
+</tr>
+<tr>
+<td id="effect1">Password</td>
+<td id="effect2"><input type="password" #password="ngModel" name="password" ngModel required minlength="5" maxlength="8"></td>
+<div *ngIf="password.errors?.['required'] && password.touched">Enter the Password</div>
+
+<div *ngIf="password.errors?.['minlength'] && password.touched">Please Enter Minimum of 5 charchacters</div>
+</tr>
+<br>
+<button [disabled]="!logForm.valid" class="btn btn-md btn-secondary"  type="submit">SUBMIT</button>
+</form>
+</div>  

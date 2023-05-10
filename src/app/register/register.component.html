@@ -1,20 +1,58 @@
-<h1 style="color:rgb(92, 14, 227);text-align:center">REGISTRATION FORM</h1>
-<div class="container">
-    <form>
-
-    Id:<input type="text" name="id" required minlength="1" maxlength="3">
-    <!-- <div *ngIf="id.errors?.['required'] && id.touched">enter your id</div>
-    <div *ngIf="id.errors?.['minlength'] && id.touched">enter id having a minlength of 1</div> <br><br>   -->
-    Name:<input type="text" name="name" required minlength="3" maxlength="5">
-    <!-- <div *ngIf="name.errors?.['required'] && name.touched">Enter your name</div>
-    <div *ngIf="name.errors?.['minlength'] && name.touched">enter name having a minlength of 3</div><br><br>    -->
-    Gender:<br>
-    <input type="radio" required>Male<br>
-    <input type="radio"  required>Female<br>
-    <input type="radio" required>Others<br><br>
-    Address:<input type="text" name="Address"  required>  
-    Email:<input type="text" name="email" required ><br><br>   
-    Mobile:<input type="text" name="mobileno" required><br><br>
-    <button class="bg-primary">Register</button>
+<!-- <app-header></app-header> -->
+<body>
+    <div class="container">
+    <form #RegForm="ngForm" (ngSubmit)="submitForm(RegForm.value)" novalidate>
+    
+        <tr>
+            <td id="effect1">Enter StudentId</td>
+            <td id="effect2"> <input type="Text" #UserId="ngModel" name="UserId" ngModel required minlength="1" maxlength="3"></td>
+            <div *ngIf="UserId.errors?.['required'] && UserId.touched">Enter the UserId</div>
+       
+            <div *ngIf="UserId.errors?.['minlength'] && UserId.touched">Please Enter Minimum of 3 numbers</div>
+        </tr>
+        <tr>
+            <td id="effect1">Enter Name</td>
+            <td id="effect2"> <input type="text"  #Name="ngModel" name="Name" ngModel required minlength="5" maxlength="8"></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter Gender</td>
+           <td id="effect2" required ngModel> <select>
+                <option  >Select Gender</option>
+                <option >M</option>
+                <option>F</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter DOB</td>
+            <td id="effect2"><input type="date" name="DOB" ngModel required></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter Age</td>
+            <td id="effect2"> <input type="number" name="Age" ngModel ></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter EmailId</td>
+            <td id="effect2"><input type="email" name="EmailId" ngModel required></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter Marks</td>
+            <td id="effect2"><input type="int" name="marks" ngModel required ></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter Country</td>
+            <td id="effect2" name="Country" #Country="ngModel" required ngModel> <select>
+                <option>Select Country</option>
+                <option *ngFor="let Countries of countries" name="alpha2Code" >
+    {{Countries.name}}
+                </option>
+            </select></td>
+        </tr>
+        <tr>
+            <td id="effect1">Enter PhoneNo.</td>
+            <td id="effect2"><input type="tel" name="phone" ngModel required></td>
+        </tr>
+    
+    <button [disabled]="RegForm.valid" class="btn btn-md btn-secondary"  type="submit">SUBMIT</button>
     </form>
-</div>
+    </div>
+    </body>

@@ -1,0 +1,26 @@
+
+
+
+
+
+
+.FooterSection{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(240, 176, 50);
+}
+.FooterSection p{
+    color: white;
+    padding-top: 18px;
+}
+.FooterSection a{
+    color: white;
+    text-decoration: none;
+    margin: 20px 10px;
+    padding-bottom: 18px; 
+}
+.FooterSection a:hover{
+    color:crimson;
+}

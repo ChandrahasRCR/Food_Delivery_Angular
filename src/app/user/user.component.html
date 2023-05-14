@@ -1,5 +1,5 @@
 
-<table class="table table-bordered">
+<table  class="table table-bordered">
     <tr class="effect2">
         <th>User Id</th>
         <th>User Name</th>
@@ -7,66 +7,173 @@
         <th>User Mobile</th>
         <th>User Password</th>
         <th>User Email</th>
-       
-        
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
     </tr>
-    <tr class="effect1" *ngFor="let emp of Employees">
-        <td>{{emp.uid}}</td>
-        <td>{{emp.uname}}</td>
-        <td>{{emp.uaddress }}</td>
-         <td>{{emp.umobile}}</td>
-        <td>{{emp.upassword}}</td>
-        <td>{{emp.uemail}}</td>
-        ]
-        <td (click)="delEmp(emp.id)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+    <tr class="effect1" *ngFor="let urs of Users">
+        <td>{{urs.uid}}</td>
+        <td>{{urs.uname}}</td>
+        <td>{{urs.uaddress }}</td>
+        <td>{{urs.umobile}}</td>
+        <td>{{urs.upassword}}</td>
+        <td>{{urs.uemail}}</td>
+        
+        <td (click)="delUrs(urs.uid)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
           </svg>
           </td>
           <td></td>
-          <td (click)="edit(emp)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <td (click)="edit(urs)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
             <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
           </svg>           
           </td>
     </tr>
 </table>
-
-<a routerLink="/toempform" class="btn btn-secondary"> AddEmployee</a>
-
-<form *ngIf="employee" (ngSubmit)="upemp()">
+<div class="add">
+<a routerLink="/addUser" class="btn btn-secondary"> Add User</a>
+</div>
+<form *ngIf="user" (ngSubmit)="upurs()">
     <div class="container">
-    <!-- <tr>
-        <td>Employee Id</td>
-        <td id="effect3" ><input  type="int" name="StuId" [(ngModel)]="employee.id" ></td>
-    </tr> -->
+  
     <tr>
         <td>User id</td>
-        <td id="effect3"><input type="text" name="uid" [(ngModel)]="employee.uid"></td>
+        <td id="effect3"><input type="text" name="uid" [(ngModel)]="user.uid"></td>
     </tr>
     <tr>
         <td>User Name</td>
-        <td id="effect3"><input type="text" name="uname" [(ngModel)]="employee.uname"></td>
+        <td id="effect3"><input type="text" name="uname" [(ngModel)]="user.uname"></td>
     </tr>
     <tr>
         <td>User Address</td>
-        <td id="effect3"><input type="email" name="uaddress" [(ngModel)]="employee.uaddress"></td>
+        <td id="effect3"><input type="email" name="uaddress" [(ngModel)]="user.uaddress"></td>
     </tr>
     <tr>
         <td>User Mobile</td>
-        <td id="effect3"><input type="text" name="umobile" [(ngModel)]="employee.umobile"></td>
+        <td id="effect3"><input type="text" name="umobile" [(ngModel)]="user.umobile"></td>
     </tr>
     <tr>
         <td>User password</td>
-        <td id="effect3"><input type="email" name="upassword" [(ngModel)]="employee.upassword"></td>
+        <td id="effect3"><input type="email" name="upassword" [(ngModel)]="user.upassword"></td>
     </tr>
     <tr>
         <td>User email</td>
-        <td id="effect3"><input type="text" name="uemail" [(ngModel)]="employee.uemail"></td>
+        <td id="effect3"><input type="text" name="uemail" [(ngModel)]="user.uemail"></td>
     </tr>
     <button class="btn btn-primary"> Submit</button>
 </div>
     
 </form>
+<br><br><br><br>
+<!-- Food Admin Cruds -->
+<table  class="table table-bordered">
+    <tr class="effect2">
+        <th>Food Id</th>
+        <th>Food Name</th>
+        <th>Food Price</th>
+        <th>Food Desciption</th>
+        <th>Food Category Id</th>
+        <th>Food Image</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr class="effect1" *ngFor="let fds of Foods">
+        <td>{{fds.foodid}}</td>
+        <td>{{fds.name}}</td>
+        <td>{{fds.price}}</td>
+        <td>{{fds.description}}</td>
+        <td>{{fds.fcid}}</td>
+        <td>
+        <img src="{{fds.image}}" alt="My Image" height="100" width="200">
+        </td>
+        <td (click)="delFood(fds.foodid)"> <button class="btn btn-danger"> Delete</button>
+          </td>
+          <td></td>
+          <td (click)="editFood(fds)"> <button class="btn btn-secondary"> Edit</button>
+          </td>
+    </tr>
+</table>
+
+<div class="add">
+    <a routerLink="/addFood" class="btn btn-secondary"> Add Food</a>
+    </div>
+<form *ngIf="food" (ngSubmit)="upfds()">
+    <div class="container">
+  
+    <tr>
+        <td>Food id</td>
+        <td id="effect3"><input type="text" name="foodid" [(ngModel)]="food.foodid"></td>
+    </tr>
+    <tr>
+        <td>Food Name</td>
+        <td id="effect3"><input type="text" name="name" [(ngModel)]="food.name"></td>
+    </tr>
+    <tr>
+        <td>Food Price</td>
+        <td id="effect3"><input type="email" name="price" [(ngModel)]="food.price"></td>
+    </tr>
+    <tr>
+        <td>Food Desciption</td>
+        <td id="effect3"><input type="text" name="description" [(ngModel)]="food.description"></td>
+    </tr>
+    <tr>
+        <td>Food Category Id</td>
+        <td id="effect3"><input type="email" name="fcid" [(ngModel)]="food.fcid"></td>
+    </tr>
+    <tr>
+        <td>Food Image</td>
+        <td id="effect3"><input type="text" name="image" [(ngModel)]="food.image"></td>
+    </tr>
+    <button class="btn btn-primary"> Submit</button>
+</div>
+    
+</form>
+<br><br><br><br>
+<!-- Food_Category crud operations -->
+<div class="Fc">
+<table  class="table table-bordered">
+    <tr class="effect2">
+        <th>Food Category Id</th>
+        <th>Food Category Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr class="effect1" *ngFor="let fds of FC">
+        <td>{{fds.fcid}}</td>
+        <td>{{fds.fcname}}</td>
+      
+        
+        <td (click)="delFC(fds.foodid)"><button type="button" class="btn btn-danger"> Delete</button>
+          </td>
+          <td></td>
+          <td (click)="editFC(fds)"><button type="button" class="btn btn-secondary"> Edit</button>
+          </td>
+    </tr>
+</table>
+
+<div class="add">
+    <a routerLink="/addFC" class="btn btn-secondary"> Add Food</a>
+    </div>
+<form *ngIf="fc" (ngSubmit)="upfc()">
+    <div class="container">
+  
+    <tr>
+        <td>Food Category Id</td>
+        <td id="effect3"><input type="text" name="fcid" [(ngModel)]="food.fcid"></td>
+    </tr>
+    <tr>
+        <td>Food Category Name</td>
+        <td id="effect3"><input type="text" name="fcname" [(ngModel)]="food.fcname"></td>
+    </tr>
+    
+    <button class="btn btn-primary"> Submit</button>
+</div>
+    
+</form>
+</div>

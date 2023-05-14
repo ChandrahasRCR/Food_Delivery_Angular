@@ -1,0 +1,24 @@
+
+<form  #userform="ngForm" (ngSubmit)="addusr(userform.value)" novalidate>
+    <table class="table table-bordered">
+        <tr class="effect2">
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>User Address</th>
+            <th>User Mobile</th>
+            <th>User Password</th>
+            <th>User Email</th>
+        </tr>
+        <tr>
+        <td id="effect2"> <input type="int"  #uid="ngModel" name="uid" ngModel required maxlength="20"></td>
+        <td id="effect2"> <input type="text"  #uname="ngModel" name="uname" ngModel required  maxlength="20"></td>
+        <td id="effect2"> <input type="text"  #uaddress="ngModel" name="uaddress" ngModel required maxlength="20"></td>
+        <td id="effect2"> <input type="number"  #umobile="ngModel" name="umobile" ngModel required  maxlength="20"></td>
+        <td id="effect2"> <input type="int"  #upassword="ngModel" name="upassword" ngModel required ></td>
+        <td id="effect2"> <input type="email"  #uemail="ngModel" name="uemail" ngModel required maxlength="20"></td>
+       
+        </tr>
+    </table>
+    <button [disabled]="!userform.valid" routerLink="addusr" class="btn btn-primary"> Submit</button>
+    </form>
+    

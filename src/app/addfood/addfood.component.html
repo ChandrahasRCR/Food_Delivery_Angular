@@ -1,0 +1,25 @@
+
+<form  #foodform="ngForm" (ngSubmit)="addfood(foodform.value)" novalidate>
+    <table class="table table-bordered">
+        <tr class="effect2">
+            <th>Food Id</th>
+            <th>Food Name</th>
+            <th>Food Price</th>
+            <th>Food Desciption</th>
+            <th>Food Category Id</th>
+            <th>Food Image</th>
+          
+        </tr>
+        <tr>
+        <td id="effect2"> <input type="int"  #foodid="ngModel" name="foodid" ngModel required maxlength="20"></td>
+        <td id="effect2"> <input type="text"  #name="ngModel" name="name" ngModel required  maxlength="20"></td>
+        <td id="effect2"> <input type="int"  #price="ngModel" name="price" ngModel required maxlength="20"></td>
+        <td id="effect2"> <input type="text"  #description="ngModel" name="description" ngModel required  maxlength="20"></td>
+        <td id="effect2"> <input type="int"  #fcid="ngModel" name="fcid" ngModel required ></td>
+        <td id="effect2"> <input type="text"  #image="ngModel" name="image" ngModel required maxlength="20"></td>
+       
+        </tr>
+    </table>
+    <button [disabled]="!foodform.valid" routerLink="addfood" class="btn btn-primary"> Submit</button>
+   </form>
+    

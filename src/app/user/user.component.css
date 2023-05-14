@@ -1,0 +1,51 @@
+table {
+   font-size: 3ch;
+    border:2px solid black;
+    margin:0 auto ;
+  justify-content: center;
+}
+button{
+color: #000;
+}
+.Fc{
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+}
+.Fc svg{
+  font-size: 300px;
+}
+
+div{
+  margin:0 30% ;
+  text-align: center;
+}
+h1{
+  color:red;
+  text-align: center;
+}
+/* th,tr,td,table{
+  padding: 0% 15%;
+} */
+  .effect1{
+  background-color:rgb(211, 239, 226);
+  color:rgb(128, 5, 159);
+  /* margin: 10% 15%; */
+  }
+
+  .effect2{
+    background-color:aquamarine ;
+    color:rgb(241, 6, 112);
+    /* margin: 10% 15%; */
+  }
+  .effect4{
+    margin:0 auto ; 
+    
+    }
+    
+    svg:hover{
+      transform: scale(1.5);
+      color: red;
+    }
+    

@@ -1,10 +1,21 @@
-
-
-
-
-
+nav{
+    transform: scale(1,1.7);
+}    
+.navbar a{
+    text-decoration:none;
+    margin-right: 120px;
+ font-size: x-large;
+   }
+.nav-item a:hover{
+    background-color: rgb(46, 60, 28);
+    cursor: pointer;
+}
+.emo a:hover{
+    cursor: not-allowed;
+   }
 
 .FooterSection{
+    font-size: x-large;
     text-align: center;
     display: flex;
     flex-wrap: wrap;

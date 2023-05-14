@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -21,6 +21,7 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.1",
     "@syncfusion/ej2-angular-navigations": "^21.2.4",
     "bootstrap": "^5.2.3",
+    "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^10.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

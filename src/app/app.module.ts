@@ -10,6 +10,9 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AddfoodComponent } from './addfood/addfood.component';
+import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { UserComponent } from './user/user.component';
     LoginComponent, 
     HeaderComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    AdduserComponent,
+    AddfoodComponent,
+    AddfoodcategoryComponent
   ],
   
 

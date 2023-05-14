@@ -1,0 +1,17 @@
+
+<form  #foodcategoryform="ngForm" (ngSubmit)="addfc(foodcategoryform.value)" novalidate>
+    <table class="table table-bordered">
+        <tr class="effect2" >
+            <th>Food Category Id</th>
+            <th>Food Category Name</th>
+          
+        </tr>
+        <tr>
+        <td id="effect2"> <input type="int"  #fcid="ngModel" name="fcid" ngModel required maxlength="20"></td>
+        <td id="effect2"> <input type="text"  #fcname="ngModel" name="fcname" ngModel required  maxlength="20"></td>
+        
+        </tr>
+    </table>
+    <button [disabled]="!foodcategoryform.valid" routerLink="addfc" class="btn btn-primary"> Submit</button>
+    </form>
+    

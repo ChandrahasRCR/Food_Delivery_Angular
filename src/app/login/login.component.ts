@@ -17,7 +17,7 @@ export class LoginComponent {
 
   submitForm(login:any){
  
-    if(login.UserId=="admin"&&login.password=="Admin"){
+    if(login.UserId=="admin"&&login.password=="Admin1"){
       // alert("Welcome Student")
       this.user.setuserLoggedin();
       this.route.navigateByUrl("user");

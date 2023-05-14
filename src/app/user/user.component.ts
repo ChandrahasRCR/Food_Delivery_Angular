@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FoodAppserviceService } from '../food-appservice.service';
 import { Router } from '@angular/router';
 
@@ -7,45 +7,90 @@ import { Router } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
-  Employees:any;
-  employee:any;
+export class UserComponent implements OnInit{
+  Users:any;
+  user:any;
+  Foods:any;
+  food:any;
+  FC:any;
+  fc:any;
  
-  // form:NgForm;
   constructor(private stuServ:FoodAppserviceService,private route:Router){
-    this.employee=null;
+    this.user=null;
   }
 ngOnInit(): void {
-  this.getEmpList();
+  //this.getfdsList();
+  this.getAllList();
+  
 }
-getEmpList(){
-   this.stuServ.getAllUsers().subscribe((emp:any)=>{
-    this.Employees=emp;
-     this.route.navigateByUrl("/user");
-    // console.log(emp);
+
+getAllList(){
+   this.stuServ.getAllUsers().subscribe((ur:any)=>{
+   this.Users=ur;
+    console.log(this.Users);
   })
+   
+  this.stuServ.getAllFoodCategory().subscribe((fd:any)=>{
+    this.FC=fd;
+    console.log(this.Foods)
+  })
+  this.stuServ.getAllFood().subscribe((fd:any)=>{
+    this.Foods=fd;
+    console.log(this.Foods)
+  })
+
 }
-delEmp(id: any) {
+// user Methods
+edit(ur:any){
+  console.log(ur);
+  this.user=ur;
+  }
+delUrs(id: any) {
   console.log(id);
-   return this.stuServ.deleteUser(id).subscribe((emp:any)=>{
+   return this.stuServ.deleteUser(id).subscribe((ur:any)=>{
    this.ngOnInit()
   
   })
- 
-  // return this.route.navigateByUrl("employee");
 }
-edit(emp:any){
-  console.log(emp);
-  this.employee=emp;
- 
-  // return this.stuServ.updateemp(emp).subscribe((emp:any)=>{
-  }
+upurs(){
+  return this.stuServ.updateUser(this.user).subscribe((u:any)=>{
+   this.user=null;
+  })
+}
 
-  upemp(){
-   return this.stuServ.updateUser(this.employee).subscribe((e:any)=>{
-    //  this.route.navigateByUrl("/employee");
-    this.employee=null;
-   })
 
+
+// Food methods
+  editFood(ur:any){
+    console.log(ur);
+    this.food=ur;
+    }
+    delFood(id: any) {
+      console.log(id);
+       return this.stuServ.deleteFood(id).subscribe((ur:any)=>{
+       this.ngOnInit()
+      
+      })
+    }
+    upfds(){
+      return this.stuServ.updateFood(this.food).subscribe((u:any)=>{
+       this.food=null;
+      })
+    }
+    // Food Category Methods
+    editFC(ur:any){
+      console.log(ur);
+      this.food=ur;
+      }
+      delFC(id: any) {
+        console.log(id);
+         return this.stuServ.deleteFoodCategory(id).subscribe((ur:any)=>{
+         this.ngOnInit()
+        })
+      }
+upfc(){
+  return this.stuServ.updateFoodCategory(this.fc).subscribe((u:any)=>{
+   this.fc=null;
+  })
 }
 }

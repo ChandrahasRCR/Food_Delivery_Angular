@@ -1,7 +1,8 @@
 <!-- <app-header></app-header> -->
-<div class="container">
     <form #logForm="ngForm" (ngSubmit)="submitForm(logForm.value)" novalidate >
-
+       
+        <table>
+            <div class="container">
 <tr>
 <td id="effect1">UserId</td>
 <td id="effect2"><input type="text" #UserId="ngModel" name="UserId" ngModel required minlength="1" maxlength="5"></td>
@@ -16,7 +17,13 @@
 
 <div *ngIf="password.errors?.['minlength'] && password.touched">Please Enter Minimum of 5 charchacters</div>
 </tr>
+       
 <br>
-<button [disabled]="!logForm.valid" class="btn btn-md btn-secondary"  type="submit">SUBMIT</button>
+
+    <button [disabled]="!logForm.valid" id="effect1" class="btn btn-md btn-secondary"  type="submit">SUBMIT</button>
+   
+</div> 
+</table>
 </form>
-</div>  
+
+ 

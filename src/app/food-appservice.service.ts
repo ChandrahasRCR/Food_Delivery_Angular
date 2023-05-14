@@ -31,10 +31,10 @@ export class FoodAppserviceService {
     return this.httpClient.put("/FoodApp/rcr1/users/custums",formData);
    }
    deleteUser(id:any){
-    return this.httpClient.delete("/FoodApp/rcr1/users/custums"+id);
+    return this.httpClient.delete("/FoodApp/rcr1/users/custums"+ `/${id}`);
    }
    getUserById(id:any){
-    return this.httpClient.get("/FoodApp/rcr1/users/custums1",id);
+    return this.httpClient.get("/FoodApp/rcr1/users/custums1"+ `/${id}`);
    }
 
    // cruds on food
@@ -45,14 +45,14 @@ export class FoodAppserviceService {
    createFood(food: any){
     return this.httpClient.post('/FoodApp/rcr1/users/foods', food);
   }
-  updateFood(id: number, food: any){
+  updateFood(food: any){
     return this.httpClient.put('/FoodApp/rcr1/users/foods', food);
   }
   deleteFood(id: any){
-    return this.httpClient.delete('/FoodApp/rcr1/users/foods' + id);
+    return this.httpClient.delete('/FoodApp/rcr1/users/foods'+ `/${id}`);
     }
    getFoodByID(id: any){
-    return this.httpClient.get('/FoodApp/rcr1/users/foods1'+ id);
+    return this.httpClient.get('/FoodApp/rcr1/users/foods1'+ `/${id}`);
 }
 
 //curds on food-Category
@@ -66,15 +66,15 @@ createFoodCategory(foodcategory: any) {
 }
 
 getFoodCategoryId(id: any){
-  return this.httpClient.get('/FoodApp/rcr1/users/fcs1' + id);
+  return this.httpClient.get('/FoodApp/rcr1/users/fcs1' + `/${id}`);
 }
 
-updateFoodCategory(id: any, foodcategory: any){
+updateFoodCategory(foodcategory: any){
   return this.httpClient.put('/FoodApp/rcr1/users/fcs', foodcategory);
 }
 
 deleteFoodCategory(id: any){
-  return this.httpClient.delete('/FoodApp/rcr1/users/fcs' + id);
+  return this.httpClient.delete('/FoodApp/rcr1/users/fcs' + `/${id}`);
 }
 
 //cruds on cart
@@ -92,7 +92,7 @@ updateCart(id: any, cart: any){
 }
 
 deleteCart(id: any){
-  return this.httpClient.delete('/FoodApp/rcr1/users/cartss' + id);
+  return this.httpClient.delete('/FoodApp/rcr1/users/cartss' + `/${id}`);
   }
 
 

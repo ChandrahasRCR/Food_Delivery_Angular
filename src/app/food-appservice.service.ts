@@ -50,16 +50,22 @@ export class FoodAppserviceService {
   }
   deleteFood(id: any){
     return this.httpClient.delete('/FoodApp/rcr1/users/foods'+ `/${id}`);
-    }
+  }
    getFoodByID(id: any){
-    return this.httpClient.get('/FoodApp/rcr1/users/foods1'+ `/${id}`);
+    return this.httpClient.get('/FoodApp/rcr1/users/foods'+ `/${id}`);
 }
-
+getFoodBYNAME(name:any){
+  return this.httpClient.get('/FoodApp/rcr1/users/foods1'+ `/${name}`);
+}
+getFoodByCategory(name:any) {
+  return this.httpClient.get('/FoodApp/rcr1/users/foods1/category'+ `/${name}`);
+}
 //curds on food-Category
 
 getAllFoodCategory() {
   return this.httpClient.get('/FoodApp/rcr1/users/fcs');
 }
+
 
 createFoodCategory(foodcategory: any) {
   return this.httpClient.post('/FoodApp/rcr1/users/fcs', foodcategory);

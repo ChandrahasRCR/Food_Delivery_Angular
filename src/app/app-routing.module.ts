@@ -6,6 +6,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.component';
+import { AddfoodComponent } from './addfood/addfood.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
@@ -14,8 +17,9 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"user",component:UserComponent},
   {path:"addUser",component:AdduserComponent},
-  {path:"addFood",component:AdduserComponent},
-  {path:"addFC",component:AdduserComponent},
+  {path:"addFood",component:AddfoodComponent},
+  {path:"addFC",component:AddfoodcategoryComponent},
+  {path:"search",component:SearchComponent},
   {path:"register",component:RegisterComponent}
 ];
 

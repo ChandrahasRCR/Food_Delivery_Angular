@@ -33,7 +33,7 @@
     </tr>
 </table>
 <div class="add">
-<a routerLink="/addUser" class="btn btn-secondary"> Add User</a>
+<!-- <a routerLink="/addUser" class="btn btn-secondary"> Add User</a> -->
 </div>
 <form *ngIf="user" (ngSubmit)="upurs()">
     <div class="container">
@@ -68,6 +68,12 @@
 </form>
 <br><br><br><br>
 <!-- Food Admin Cruds -->
+<!-- <form #Searchform="ngForm" (ngSubmit)="searchFood(Searchform.value)">
+    <label>Search by Food Item:</label>
+    <input type="text" [(ngModel)]= "Fooditem">
+    <button [disabled]="!Searchform.valid" routerLink="searchFood" class="btn btn-primary"> Search</button>
+     <button type="submit" value="Search">Search</button>
+  </form> -->
 <table  class="table table-bordered">
     <tr class="effect2">
         <th>Food Id</th>
@@ -88,7 +94,7 @@
         <td>{{fds.description}}</td>
         <td>{{fds.fcid}}</td>
         <td>
-        <img src="{{fds.image}}" alt="My Image" height="100" width="200">
+        <img src="{{fds.image}}" alt="Image" height="100" width="200">
         </td>
         <td (click)="delFood(fds.foodid)"> <button class="btn btn-danger"> Delete</button>
           </td>
@@ -144,32 +150,32 @@
         <th></th>
         <th></th>
     </tr>
-    <tr class="effect1" *ngFor="let fds of FC">
-        <td>{{fds.fcid}}</td>
-        <td>{{fds.fcname}}</td>
+    <tr class="effect1" *ngFor="let fcs of FC">
+        <td>{{fcs.fcid}}</td>
+        <td>{{fcs.fcname}}</td>
       
         
-        <td (click)="delFC(fds.foodid)"><button type="button" class="btn btn-danger"> Delete</button>
+        <td (click)="delFC(fcs.fcid)"><button type="button" class="btn btn-danger"> Delete</button>
           </td>
           <td></td>
-          <td (click)="editFC(fds)"><button type="button" class="btn btn-secondary"> Edit</button>
+          <td (click)="editFC(fcs)"><button type="button" class="btn btn-secondary"> Edit</button>
           </td>
     </tr>
 </table>
 
 <div class="add">
-    <a routerLink="/addFC" class="btn btn-secondary"> Add Food</a>
+    <a routerLink="/addFC" class="btn btn-secondary"> Add Food Category</a>
     </div>
 <form *ngIf="fc" (ngSubmit)="upfc()">
     <div class="container">
   
     <tr>
         <td>Food Category Id</td>
-        <td id="effect3"><input type="text" name="fcid" [(ngModel)]="food.fcid"></td>
+        <td id="effect3"><input type="text" name="fcid" [(ngModel)]="fc.fcid"></td>
     </tr>
     <tr>
         <td>Food Category Name</td>
-        <td id="effect3"><input type="text" name="fcname" [(ngModel)]="food.fcname"></td>
+        <td id="effect3"><input type="text" name="fcname" [(ngModel)]="fc.fcname"></td>
     </tr>
     
     <button class="btn btn-primary"> Submit</button>
@@ -177,3 +183,42 @@
     
 </form>
 </div>
+
+    <br><br><br><br>
+    <div >
+        
+            <label>Search by Food Item:</label>
+            <input type="text"  #item="ngModel" value="Search" name="item" ngModel>
+            
+            <button class="btn" (click)="searchFood(item.value)"> Search</button>
+            <button class="btn" (click)="searchFoodByCategory(item.value)"> Search Category</button>
+            <i class="fa fa-times" aria-hidden="true" (click)="close()"></i>
+            <!-- <i class="fa fa-minus-square" aria-hidden="true" (click)="close()"></i> -->
+            <!-- <button type="submit" value="Search">Search</button> -->
+        <!-- </form>
+        <form *ngIf="Fooditem"> -->
+      <table class="table table-striped" *ngIf="Fooditem">
+        <thead>
+        <tr>
+            <th>Food Id</th>
+            <th>Food Name</th>
+            <th>Food Price</th>
+            <th>Food Description</th>
+            <th>Food Category Id</th>
+            <th>Food Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- <tr *ngFor="let fds of Fooditem | filter:searchText"> -->
+            <tr *ngFor="let fds of Fooditem">
+            <td>{{fds.foodid}}</td>
+            <td>{{fds.name}}</td>
+            <td>{{fds.price}}</td>
+            <td>{{fds.description}}</td>
+            <td>{{fds.fcid}}</td>
+            <td><img src="{{fds.image}}" alt="Image" height="100" width="200"></td>
+        </tr>
+        </tbody>
+      </table>
+    
+  </div>

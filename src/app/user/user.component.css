@@ -48,4 +48,16 @@ h1{
       transform: scale(1.5);
       color: red;
     }
-    
+    .container{
+      justify-content:center;
+      text-align: center;
+    }
+    .fa{
+      padding-left: 10cap;
+      margin-left: 10cap;
+      size: 40cap;
+    }
+    .fa:hover{
+      transform: scale(2);
+      color: red;
+    }

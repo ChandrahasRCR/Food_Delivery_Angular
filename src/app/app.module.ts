@@ -13,6 +13,9 @@ import { UserComponent } from './user/user.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddfoodComponent } from './addfood/addfood.component';
 import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.component';
+import { SearchComponent } from './search/search.component';
+import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.comp
     UserComponent,
     AdduserComponent,
     AddfoodComponent,
-    AddfoodcategoryComponent
+    AddfoodcategoryComponent,
+    SearchComponent,
+    FilterPipe,
+   
   ],
   
 

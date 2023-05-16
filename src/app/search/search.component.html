@@ -1,0 +1,53 @@
+<!-- <table  class="table table-bordered">
+    <tr class="effect2">
+        <th>Food Id</th>
+        <th>Food Name</th>
+        <th>Food Price</th>
+        <th>Food Description</th>
+        <th>Food Category Id</th>
+        <th>Food Image</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr class="effect1" *ngFor="let fds of Foods">
+        <td>{{fds.foodid}}</td>
+        <td>{{fds.name}}</td>
+        <td>{{fds.price}}</td>
+        <td>{{fds.description}}</td>
+        <td>{{fds.fcid}}</td>
+    </tr>
+</table> -->
+<div class="container text-center">
+   
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Food Id</th>
+            <th>Food Name</th>
+            <th>Food Price</th>
+            <th>Food Description</th>
+            <th>Food Category Id</th>
+            <th>Food Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fds of Foods | filter:searchText">
+            <td>{{fds.foodid}}</td>
+            <td>{{fds.name}}</td>
+            <td>{{fds.price}}</td>
+            <td>{{fds.description}}</td>
+            <td>{{fds.fcid}}</td>
+            <td><img src="{{fds.image}}" alt="Image" height="100" width="200"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

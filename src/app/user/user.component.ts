@@ -11,9 +11,12 @@ export class UserComponent implements OnInit{
   Users:any;
   user:any;
   Foods:any;
+  Fooditem:any;
+  fds1:any;
   food:any;
   FC:any;
   fc:any;
+  searchText:any;
  
   constructor(private stuServ:FoodAppserviceService,private route:Router){
     this.user=null;
@@ -34,11 +37,11 @@ getAllList(){
     this.FC=fd;
     console.log(this.Foods)
   })
+  
   this.stuServ.getAllFood().subscribe((fd:any)=>{
     this.Foods=fd;
     console.log(this.Foods)
   })
-
 }
 // user Methods
 edit(ur:any){
@@ -77,10 +80,30 @@ upurs(){
        this.food=null;
       })
     }
+    searchFood(formData:any){
+      // console.log(formData);
+      
+      return this.stuServ.getFoodBYNAME(formData).subscribe((ur:any)=>{
+        this.Fooditem=ur;
+       console.log(this.Fooditem);
+      //  this.Fooditem=null;
+     })
+    }searchFoodByCategory(formData:any){
+      console.log(formData);
+      
+      return this.stuServ.getFoodByCategory(formData).subscribe((ur:any)=>{
+        this.Fooditem=ur;
+       console.log(this.Fooditem);
+      //  this.Fooditem=null;
+     })
+    }
+    close(){
+      this.Fooditem=null;
+    }
     // Food Category Methods
     editFC(ur:any){
       console.log(ur);
-      this.food=ur;
+      this.fc=ur;
       }
       delFC(id: any) {
         console.log(id);
@@ -93,4 +116,5 @@ upfc(){
    this.fc=null;
   })
 }
+
 }

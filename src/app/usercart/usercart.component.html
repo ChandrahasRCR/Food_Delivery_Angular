@@ -1,0 +1,18 @@
+<table class="table table-bordered table-stripped table-hover">
+    <thead class="text-white bg-dark">
+      <tr >
+        <th>Cart ID</th>
+        <th>user Id</th>
+        <th>Food ID</th>
+        <th>Food Image</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+      <tbody class="bg-white">
+          <tr *ngFor="let c of cart">
+            <td>{{ c.cartid }}</td>
+            <td>{{ c.uid }}</td>
+            <td>{{c.foodid}}</td>
+            <td><img src="{{ c?.Foods?.image }}" height="100" width="200" /></td>
+      
+            <td>{{ c.quantity}}</td>

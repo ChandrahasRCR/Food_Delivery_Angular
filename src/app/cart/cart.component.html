@@ -1,0 +1,17 @@
+<table class="table table-bordered table-stripped table-hover">
+    <thead class="text-white bg-dark">
+      <tr >
+        <th >Cart ID</th>
+        <th>User Id</th>
+        <th>Food Id</th> 
+        
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr *ngFor="let c of cart">
+        <td>{{ c.cartid }}</td>
+        <td>{{ c.uid }}</td>
+        <td>{{ c.foodid }}</td>
+      </tr>
+    </tbody>
+  </table>

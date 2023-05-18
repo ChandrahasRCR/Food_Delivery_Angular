@@ -17,6 +17,7 @@ export class UserComponent implements OnInit{
   FC:any;
   fc:any;
   searchText:any;
+  cart:any;
  
   constructor(private stuServ:FoodAppserviceService,private route:Router){
     this.user=null;
@@ -42,6 +43,10 @@ getAllList(){
     this.Foods=fd;
     console.log(this.Foods)
   })
+   this.stuServ.getAllCart().subscribe((data: any) => {
+    this.cart = data;
+    console.log(data);
+  });
 }
 // user Methods
 edit(ur:any){
@@ -116,5 +121,7 @@ upfc(){
    this.fc=null;
   })
 }
+//Cart Methods
+
 
 }

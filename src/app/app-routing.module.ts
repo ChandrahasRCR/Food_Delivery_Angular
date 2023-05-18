@@ -9,6 +9,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.component';
 import { AddfoodComponent } from './addfood/addfood.component';
 import { SearchComponent } from './search/search.component';
+import { UsercartComponent } from './usercart/usercart.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"addFood",component:AddfoodComponent},
   {path:"addFC",component:AddfoodcategoryComponent},
   {path:"search",component:SearchComponent},
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+  {path:"usercart",component:UsercartComponent}
 ];
 
 @NgModule({

@@ -15,6 +15,8 @@ import { AddfoodComponent } from './addfood/addfood.component';
 import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.component';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './filter.pipe';
+import { CartComponent } from './cart/cart.component';
+import { UsercartComponent } from './usercart/usercart.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { FilterPipe } from './filter.pipe';
     AddfoodcategoryComponent,
     SearchComponent,
     FilterPipe,
+    CartComponent,
+    UsercartComponent,
    
   ],
   

@@ -67,13 +67,7 @@
     
 </form>
 <br><br><br><br>
-<!-- Food Admin Cruds -->
-<!-- <form #Searchform="ngForm" (ngSubmit)="searchFood(Searchform.value)">
-    <label>Search by Food Item:</label>
-    <input type="text" [(ngModel)]= "Fooditem">
-    <button [disabled]="!Searchform.valid" routerLink="searchFood" class="btn btn-primary"> Search</button>
-     <button type="submit" value="Search">Search</button>
-  </form> -->
+
 <table  class="table table-bordered">
     <tr class="effect2">
         <th>Food Id</th>
@@ -193,10 +187,7 @@
             <button class="btn" (click)="searchFood(item.value)"> Search</button>
             <button class="btn" (click)="searchFoodByCategory(item.value)"> Search Category</button>
             <i class="fa fa-times" aria-hidden="true" (click)="close()"></i>
-            <!-- <i class="fa fa-minus-square" aria-hidden="true" (click)="close()"></i> -->
-            <!-- <button type="submit" value="Search">Search</button> -->
-        <!-- </form>
-        <form *ngIf="Fooditem"> -->
+          
       <table class="table table-striped" *ngIf="Fooditem">
         <thead>
         <tr>
@@ -209,7 +200,6 @@
         </tr>
         </thead>
         <tbody>
-        <!-- <tr *ngFor="let fds of Fooditem | filter:searchText"> -->
             <tr *ngFor="let fds of Fooditem">
             <td>{{fds.foodid}}</td>
             <td>{{fds.name}}</td>
@@ -222,3 +212,24 @@
       </table>
     
   </div>
+  <br><br><br><br>
+  <br><br><br><br>
+  <table class="table table-bordered table-stripped table-hover">
+    <thead class="text-white bg-dark">
+      <tr >
+        <th >Cart ID</th>
+        <th>User Id</th>
+        <th>Food Id</th> 
+        
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr *ngFor="let c of cart">
+        <td>{{ c.cartid }}</td>
+        <td>{{ c.uid }}</td>
+        <td>{{ c.foodid }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+  <br><br><br><br>

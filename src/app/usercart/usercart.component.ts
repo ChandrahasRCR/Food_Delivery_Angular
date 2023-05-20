@@ -7,29 +7,56 @@ import { FoodAppserviceService } from '../food-appservice.service';
   styleUrls: ['./usercart.component.css']
 })
 export class UsercartComponent implements OnInit {
-  cart:any;
+  carts:any;
   Foods:any;
+  Foodpic:any[] = [];
+  count:any;
 constructor(private stuServ:FoodAppserviceService){
 
 }
 ngOnInit(): void {
   this.getAllCart();
 }
+edit(q:any){
+  console.log(q);
+  this.count=q;
+  }
+Plus(){
+return this.stuServ.updateCart(this.count).subscribe((u:any)=>{
+  this.count=u;
+ })
+}
+Minus(){
+
+}
+
 getAllCart() {
-  this.stuServ.getAllFood().subscribe((fd:any)=>{
-    this.Foods=fd;
-    console.log(this.Foods)
-  })
+  // this.stuServ.getAllFood().subscribe((fd:any)=>{
+  //   this.Foods=fd;
+  //   // console.log(this.Foods);
+  // })
+  // this.stuServ.getFoodImage(this.Foods.foodId).subscribe((fimage:any)=>{
+  //    this.image=fimage;
+  //     console.log(fimage);
+  // })
   return this.stuServ.getAllCart().subscribe((data: any) => {
-    let cartList = data;
-    cartList.forEach((item: any) => {
-      this.stuServ.getFoodByID(item.foodId).subscribe((res: any) => {
-        item.food = res;
+    this.carts = data;
+
+    
+    this.carts.forEach((item: any) => {
+      // console.log(item.foodid);
+      this.stuServ.getFoodByID(item.foodid).subscribe((res: any) => {
+        item.image = res.image;
+        // this.Foodpic.push(res);
+        console.log(res);
       })
     });
-    setTimeout(() => {
-      this.cart = cartList;
-    }, 10);     
+    
+    console.log(this.carts);
+    
+    // setTimeout(() => {
+      // this.carts= data;
+    // }, 10);     
   });
 
 }

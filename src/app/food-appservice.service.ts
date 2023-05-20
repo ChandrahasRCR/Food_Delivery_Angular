@@ -42,6 +42,9 @@ export class FoodAppserviceService {
    getAllFood() {
     return this.httpClient.get('/FoodApp/rcr1/users/foods');
   }
+  getFoodImage(id:number){
+    return this.httpClient.get("/FoodApp/rcr1/users/foodsimage"+ `/${id}`)
+  }
    createFood(food: any){
     return this.httpClient.post('/FoodApp/rcr1/users/foods', food);
   }
@@ -93,8 +96,8 @@ createCart(cart: any){
   return this.httpClient.post('/FoodApp/rcr1/users/cartss', cart);
 }
 
-updateCart(id: any, cart: any){
-  return this.httpClient.put('/FoodApp/rcr1/users/cartss', cart);
+updateCart(id: any){
+  return this.httpClient.put('/FoodApp/rcr1/users/cartss', id);
 }
 
 deleteCart(id: any){

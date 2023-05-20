@@ -17,7 +17,9 @@ export class UserComponent implements OnInit{
   FC:any;
   fc:any;
   searchText:any;
-  cart:any;
+  carts:any;
+  count:any;
+  ct1:any;
  
   constructor(private stuServ:FoodAppserviceService,private route:Router){
     this.user=null;
@@ -44,7 +46,7 @@ getAllList(){
     console.log(this.Foods)
   })
    this.stuServ.getAllCart().subscribe((data: any) => {
-    this.cart = data;
+    this.carts = data;
     console.log(data);
   });
 }
@@ -122,6 +124,24 @@ upfc(){
   })
 }
 //Cart Methods
-
+delCart(id:any){
+  console.log(id);
+  return this.stuServ.deleteCart(id).subscribe((ur:any)=>{
+  this.ngOnInit()
+ })
+}
+cAdd(){
+  this.ct1="count";
+}
+Plus(data:any){
+  this.count=data;
+  console.log(this.count);
+  this.ct1=null;
+  return this.stuServ.createCart(data).subscribe((u:any)=>{
+    this.count=u;
+    console.log(this.count);
+    
+   })
+  }
 
 }

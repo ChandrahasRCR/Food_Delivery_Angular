@@ -1,18 +1,56 @@
-<table class="table table-bordered table-stripped table-hover">
-    <thead class="text-white bg-dark">
+
+<table class="table table-bordered table-stripped"  *ngIf="carts">
+    <thead class="text-white bg-danger">
       <tr >
         <th>Cart ID</th>
         <th>user Id</th>
         <th>Food ID</th>
         <th>Food Image</th>
         <th>Quantity</th>
+        <!-- <th>Testing</th> -->
         <th>Actions</th>
       </tr>
+    </thead>
       <tbody class="bg-white">
-          <tr *ngFor="let c of cart">
-            <td>{{ c.cartid }}</td>
-            <td>{{ c.uid }}</td>
-            <td>{{c.foodid}}</td>
-            <td><img src="{{ c?.Foods?.image }}" height="100" width="200" /></td>
-      
-            <td>{{ c.quantity}}</td>
+        
+          <tr *ngFor="let cart of carts" >
+            <td>{{cart.cartid }}</td>
+            <td>{{cart.uid }}</td>
+            <td>{{cart.foodid}}</td>
+            
+            <td ><img src="{{cart.image}}" height="100" width="200" /></td>
+            <!-- <td>{{}}</td> -->
+            <!-- <td ><img src="{{Foodpic.image}}" height="100" width="200" /></td> -->
+            <td>{{cart.quantity}}</td>
+            <div class="plusminus">
+            <td (click)="edit(cart)"><button class="btn btn-secondary">Add Item</button></td>
+            
+            </div>
+          </tr>
+      </tbody>
+   
+</table>
+<form *ngIf="count" (ngSubmit)="Plus()">
+  <div class="container">
+    <!-- <tr>
+      <td>Food Quantity number</td>
+      <td id="effect3"><input type="text" name="cartid" [(ngModel)]="count.cartid"></td>
+ </tr>  -->
+  <tr>
+    <td>User Id</td>
+    <td id="effect3"><input type="text" name="uid" [(ngModel)]="count.uid"></td>
+</tr>
+<tr>
+  <td>Food Id number</td>
+  <td id="effect3"><input type="text" name="foodid" [(ngModel)]="count.foodid"></td>
+</tr>
+  <tr>
+      <td>Food Quantity number</td>
+      <td id="effect3"><input type="number" name="quantity" [(ngModel)]="count.quantity"></td>
+  </tr>
+
+  
+  <button class="btn btn-primary"> Submit</button>
+</div>
+  
+</form>

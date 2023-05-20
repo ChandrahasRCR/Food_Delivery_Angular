@@ -218,21 +218,52 @@
   <br><br><br><br>
   <!-- Cart code -->
   <table class="table table-bordered table-stripped table-hover">
-    <thead class="text-white bg-dark">
+    <thead class="text-white bg-danger">
       <tr >
         <th >Cart ID</th>
         <th>User Id</th>
         <th>Food Id</th> 
-        
+        <th>Items</th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="bg-white">
-      <tr *ngFor="let c of cart">
-        <td>{{ c.cartid }}</td>
-        <td>{{ c.uid }}</td>
-        <td>{{ c.foodid }}</td>
+      <tr *ngFor="let cart of carts">
+        <td>{{cart.cartid}}</td>
+        <td>{{cart.uid }}</td>
+        <td>{{cart.foodid }}</td>
+        <td>{{cart.quantity}}</td>
+        <td (click)="delCart(cart.cartid)"><button type="button" class="btn btn-danger"> Delete</button>
+        </td>
       </tr>
+      <button class="btn btn-primary" (click)="cAdd()">Add Cart</button>
     </tbody>
-  </table>
+</table>
+    <!-- <button class="btn btn-primary" (click)="cAdd()">Add Cart</button> -->
+ 
   <br><br><br><br>
+  <form *ngIf="ct1" #cartform="ngForm" (ngSubmit)="Plus(cartform.value)">
+    <div class="container">
+      <tr>
+        <td>Food Cart Id</td>
+        <td id="effect3"><input type="text" name="cartid" [(ngModel)]="count.cartid"></td>
+    </tr>
+    <tr>
+      <td>User Id</td>
+      <td id="effect3"><input type="text" name="uid" [(ngModel)]="count.uid"></td>
+  </tr>
+  <tr>
+    <td>Food Id</td>
+    <td id="effect3"><input type="text" name="foodid" [(ngModel)]="count.foodid"></td>
+  </tr>
+    <tr>
+        <td>Number of items</td>
+        <td id="effect3"><input type="number" name="quantity" [(ngModel)]="count.quantity"></td>
+    </tr>
+  
+    
+    <button class="btn btn-primary"> Submit</button>
+  </div>
+    
+  </form>
   <br><br><br><br>

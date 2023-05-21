@@ -47,6 +47,7 @@ getAllCart() {
       // console.log(item.foodid);
       this.stuServ.getFoodByID(item.foodid).subscribe((res: any) => {
         item.image = res.image;
+        item.price=res.price;
         // this.Foodpic.push(res);
         console.log(res);
       })

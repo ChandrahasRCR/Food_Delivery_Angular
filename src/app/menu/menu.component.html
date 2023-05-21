@@ -1,0 +1,170 @@
+<h1 class="logo">Dish<b>Dash</b></h1>
+<br><br><br>
+<div >
+        
+  <label>Search by Food Item:</label>
+  <input type="text"  #item="ngModel" value="Search" name="item" ngModel>
+  
+  <button class="btn" (click)="searchFood(item.value)"> Search</button>
+  <button class="btn" (click)="searchFoodByCategory(item.value)"> Search Category</button>
+  <i class="fa fa-times" aria-hidden="true" (click)="close()"></i>
+
+</div>
+<!-- Show User Cart -->
+<div>
+    <button class="btn btn-primary" (click)="showcart()">View Cart</button>
+    <button class="btn-secondary" (click)="closecart()">Close</button>
+</div>
+<div>
+    <table class="table table-striped" *ngIf="cartitem">
+    <thead>
+        <tr>
+            <!-- <th>Cart Id</th> -->
+            <!-- <th>User Id</th> -->
+            <!-- <th>Food Id</th> -->
+            <th>Food Name</th>
+            <th>No.of Items</th>
+            <th>Food Image</th>
+            <th>Total price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    <tbody>
+      <!-- <td>{{cartitem.cartid }}</td> -->
+    <tr *ngFor="let cart of cartitem" >
+        <!-- <td>{{cartitem.cartid }}</td> -->
+        <!-- <td>{{cart.uid }}</td> -->
+        <!-- <td>{{cart.foodid}}</td> -->
+        <td>{{cart.name}}</td>
+        <td>{{cart.quantity}}</td>
+        <td ><img src="{{cart.image}}" height="100" width="200" /></td>
+        <td>{{cart.quantity*cart.price}}</td>
+        <td>
+        <button class="btn btn-secondary" (click)="edit(cart)">Edit</button><br><br>
+        <button class="btn btn-danger" (click)="deleteCart(cart.serialno)">Delete</button><br><br>
+        <button class="btn btn-success">Pay</button>
+      </td>
+       </tr>
+    </tbody>
+</table>
+</div>
+<form *ngIf="count" (ngSubmit)="Plus()">
+    <div class="container">
+      <!-- <tr>
+        <td>Food Quantity number</td>
+        <td id="effect3"><input type="text" name="cartid" [(ngModel)]="count.cartid"></td>
+   </tr>  -->
+    <!-- <tr>
+      <td>User Id</td>
+      <td id="effect3"><input type="text" name="uid" [(ngModel)]="count.uid"></td>
+  </tr> -->
+  <!-- <tr>
+    <td>Food Id number</td>
+    <td id="effect3"><input type="text" name="foodid" [(ngModel)]="count.foodid"></td>
+  </tr> -->
+    <tr>
+        <td>Food Quantity number</td>
+        <td id="effect3"><input type="number" name="quantity" [(ngModel)]="count.quantity"></td>
+    </tr>
+  
+    
+    <button class="btn btn-primary"> Submit</button>
+  </div>
+    
+  </form>
+  
+<!-- <br><br><br><br><br> -->
+
+
+<div>
+<table class="table table-striped" *ngIf="Fooditem">
+  <thead>
+  <tr>
+      <th>Food Id</th>
+      <th>Food Name</th>
+      <th>Food Price</th>
+      <th>Food Description</th>
+      <th>Food Category Id</th>
+      <th>Food Image</th>
+  </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let fds of Fooditem">
+      <td>{{fds.foodid}}</td>
+      <td>{{fds.name}}</td>
+      <td>{{fds.price}}</td>
+      <td>{{fds.description}}</td>
+      <td>{{fds.fcid}}</td>
+      <td><img src="{{fds.image}}" alt="Image" height="100" width="200"></td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
+<br><br>
+
+
+
+
+
+
+
+             
+          <!--      <<<<<<<<<IMAGES>>>>>>>>>>>>> -->
+
+
+<!-- <div>
+  <input type="text"  #box placeholder="search..." name="item" >
+  <button>Search</button>
+</div> -->
+
+<div class="dashboard">
+    <div class="dashboard-banner">
+        <img src="./assets/images/bg6.jpg">
+         <!-- <div class="banner-promo">
+            <h1><span>50% OFF</span><br>
+            TastyFood <br>On Your Hand</h1>
+            <a  routerLink="/all">OrderNow</a>
+        </div>  -->
+    </div>
+</div>
+<div class="name">
+    <h3>Recommended for you</h3>
+    </div>
+   
+<div class="dashboard-menu">
+   
+       <!-- <a class="nav-link" routerLink="/all">All</a> -->
+       <a class="nav-link"  (click)="main()">Vegetarion</a>
+       <!-- <a class="nav-link" routerLink="/pizza">Pizza Mania</a> -->
+       <a class="nav-link" routerLink="/nonveg">Non-Veg</a>
+       <a class="nav-link " routerLink="/tiffins">Tiffins</a>
+     <a class="nav-link" routerLink="/starter">Starters</a>
+     <a class="nav-link" routerLink="/desserts">Desserts</a>
+</div>
+
+
+<!-- 1strow -->
+<tr  *ngFor="let fds of Foods">
+<div    class="dashboard-content">
+    <div class="dashboard-card">
+      <img src="{{fds.image}}" alt="My Image" height="100" width="200">
+  <div class="card-detail">
+    <h4> {{fds.name}}</h4>
+    <p>{{fds.description}}</p>
+    <p>{{fds.foodid}}</p>
+    <h2>{{fds.price}}</h2>
+    <!-- <a  routerLink="/cart">AddToCart</a> -->
+    <a (click)="addToCart(fds)" class="btn btn-warning">AddToCart</a>
+  </div> 
+       </div> 
+    </div>
+    </tr>
+   
+
+               <div class="FooterSection">
+                <p>Copy Right@2023&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p>Follow us on</p><a href="https://www.facebook.com/" target="_blank">&nbsp;&nbsp;<i class="fa fa-facebook-square"></i></a><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <p>Contact us Via &nbsp;&nbsp;</p> <a href="https://www.whatsapp.com/" target="_blank">
+                  <i class="fa fa-whatsapp"></i></a>
+                </div>

@@ -10,6 +10,8 @@ import { AddfoodcategoryComponent } from './addfoodcategory/addfoodcategory.comp
 import { AddfoodComponent } from './addfood/addfood.component';
 import { SearchComponent } from './search/search.component';
 import { UsercartComponent } from './usercart/usercart.component';
+import { MenuComponent } from './menu/menu.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path:"addFC",component:AddfoodcategoryComponent},
   {path:"search",component:SearchComponent},
   {path:"register",component:RegisterComponent},
-  {path:"usercart",component:UsercartComponent}
+  {path:"usercart",component:UsercartComponent},
+  {path:"menu",component:MenuComponent},
+  {path:"cart",component:CartComponent}
 ];
 
 @NgModule({

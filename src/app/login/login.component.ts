@@ -9,23 +9,34 @@ import { FoodAppserviceService } from '../food-appservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  UserId:any;
-  password:any;
-  constructor(private route:Router ,private user:FoodAppserviceService){
+  constructor(private foodservice:FoodAppserviceService,private route:Router){}
 
+  aftemail:any;
+  aftpass:any;
+
+  validate(data:any){
+    return this.foodservice.getIdByEmail(data.uemail).subscribe((aftemail:any)=>{
+      // console.log(aftemail); 
+      this.foodservice.getIdByPassword(data.upassword).subscribe((aftpass:any)=>{
+      
+        if(aftemail==aftpass){
+          this.foodservice.setuser(data.uemail);
+          this.route.navigateByUrl("menu");
+
+        }else if(aftemail==null||aftpass==null){
+          alert("invalid credentials")
+          this.route.navigateByUrl("login");
+        }
+        else{
+          alert("invalid credentials")
+          this.route.navigateByUrl("login");
+        }
+      
+      });
+
+    });
   }
 
-  submitForm(login:any){
- 
-    if(login.UserId=="admin"&&login.password=="Admin1"){
-      // alert("Welcome Student")
-      this.user.setuserLoggedin();
-      this.route.navigateByUrl("user");
-    }
-    else
-    this.route.navigate(['login'])
-    // alert("Invalid Creds.")
-    // console.log(reg);
-  }
+
 
 }

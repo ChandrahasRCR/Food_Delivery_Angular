@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './filter.pipe';
 import { CartComponent } from './cart/cart.component';
 import { UsercartComponent } from './usercart/usercart.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { UsercartComponent } from './usercart/usercart.component';
     FilterPipe,
     CartComponent,
     UsercartComponent,
+    MenuComponent,
    
   ],
   

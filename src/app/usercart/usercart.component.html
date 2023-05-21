@@ -7,6 +7,7 @@
         <th>Food ID</th>
         <th>Food Image</th>
         <th>Quantity</th>
+        <th>Total Price</th>
         <!-- <th>Testing</th> -->
         <th>Actions</th>
       </tr>
@@ -22,6 +23,7 @@
             <!-- <td>{{}}</td> -->
             <!-- <td ><img src="{{Foodpic.image}}" height="100" width="200" /></td> -->
             <td>{{cart.quantity}}</td>
+            <td>{{cart.quantity*cart.price}}</td>
             <div class="plusminus">
             <td (click)="edit(cart)"><button class="btn btn-secondary">Add Item</button></td>
             

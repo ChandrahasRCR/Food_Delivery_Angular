@@ -199,16 +199,20 @@
             <th>Food Description</th>
             <th>Food Category Id</th>
             <th>Food Image</th>
+            
         </tr>
         </thead>
         <tbody>
             <tr *ngFor="let fds of Fooditem">
+                
             <td>{{fds.foodid}}</td>
             <td>{{fds.name}}</td>
             <td>{{fds.price}}</td>
             <td>{{fds.description}}</td>
             <td>{{fds.fcid}}</td>
             <td><img src="{{fds.image}}" alt="Image" height="100" width="200"></td>
+            
+        
         </tr>
         </tbody>
       </table>

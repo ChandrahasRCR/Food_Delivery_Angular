@@ -1,29 +1,22 @@
 <!-- <app-header></app-header> -->
-    <form #logForm="ngForm" (ngSubmit)="submitForm(logForm.value)" novalidate >
-       
-        <table>
-            <div class="container">
-<tr>
-<td id="effect1">UserId</td>
-<td id="effect2"><input type="text" #UserId="ngModel" name="UserId" ngModel required minlength="1" maxlength="5"></td>
-<div *ngIf="UserId.errors?.['required'] && UserId.touched">Enter the UserId</div>
-
-<div *ngIf="UserId.errors?.['minlength'] && UserId.touched">Please Enter Minimum of 3 numbers</div>
-</tr>
-<tr>
-<td id="effect1">Password</td>
-<td id="effect2"><input type="password" #password="ngModel" name="password" ngModel required minlength="5" maxlength="8"></td>
-<div *ngIf="password.errors?.['required'] && password.touched">Enter the Password</div>
-
-<div *ngIf="password.errors?.['minlength'] && password.touched">Please Enter Minimum of 5 charchacters</div>
-</tr>
-       
-<br>
-
-    <button [disabled]="!logForm.valid" id="effect1" class="btn btn-md btn-secondary"  type="submit">SUBMIT</button>
+<body>
    
-</div> 
-</table>
-</form>
+    <div class="container">
+    <img src="/assets/register logo.jpg" alt="image">
+    <h3  style=" text-align: center;color: rgb(34, 91, 248)">LOGIN</h3>
+    
+  <form  #login="ngForm" (ngSubmit)="validate(login.value)" novalidate>
+      
+      Email<br>
+      <input type="text" name="uemail" #uemail="ngModel" ngModel required ><br>  
+      <div *ngIf="uemail.errors?.['required'] && uemail.touched">Enter youremail</div>
+      Password<br>
+      <input type="text" name="upassword" #upassword="ngModel" ngModel required minlength="5" maxlength="9"><br>
+      <div *ngIf="upassword.errors?.['required'] && upassword.touched">enter your pasword</div><br>
+         
+      <button  class="btn btn-primary">Login</button>
+    </form>
+</div>
 
+</body>
  

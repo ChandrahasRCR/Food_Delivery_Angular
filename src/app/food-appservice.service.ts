@@ -4,6 +4,19 @@ import{HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class FoodAppserviceService {
+
+user:any;
+getuser(){
+  return this.user;
+}
+setuser(email:string){
+  this.getallUserData(email).subscribe((u:any)=>{
+    this.user=u;
+    console.log(this.user);
+    
+  })
+}
+
   userLoggedin:boolean;
   countries:any;
   constructor(private httpClient: HttpClient) {
@@ -24,6 +37,9 @@ export class FoodAppserviceService {
    getAllUsers(){
     return this.httpClient.get("/FoodApp/rcr1/users/custums");
    }
+   getallUserData(email:String){
+return this.httpClient.get(`/FoodApp/rcr1/users/custums4/${email}`);
+   }
    createNewUser(formData:any){
     return this.httpClient.post("/FoodApp/rcr1/users/custums",formData);
    }
@@ -35,6 +51,12 @@ export class FoodAppserviceService {
    }
    getUserById(id:any){
     return this.httpClient.get("/FoodApp/rcr1/users/custums1"+ `/${id}`);
+   }
+   getIdByEmail(email:any){
+    return this.httpClient.get("/FoodApp/rcr1/users/custums2"+ `/${email}`);
+   }
+   getIdByPassword(password:any){
+    return this.httpClient.get("/FoodApp/rcr1/users/custums3"+ `/${password}`);
    }
 
    // cruds on food
@@ -63,6 +85,7 @@ getFoodBYNAME(name:any){
 getFoodByCategory(name:any) {
   return this.httpClient.get('/FoodApp/rcr1/users/foods1/category'+ `/${name}`);
 }
+
 //curds on food-Category
 
 getAllFoodCategory() {
@@ -91,7 +114,9 @@ deleteFoodCategory(id: any){
 getAllCart() {
   return this.httpClient.get('/FoodApp/rcr1/users/cartss');
 }
-
+getCartByID(id:any){
+return this.httpClient.get('/FoodApp/rcr1/users/cartss' + `/${id}`);
+}
 createCart(cart: any){
   return this.httpClient.post('/FoodApp/rcr1/users/cartss', cart);
 }
@@ -103,7 +128,9 @@ updateCart(id: any){
 deleteCart(id: any){
   return this.httpClient.delete('/FoodApp/rcr1/users/cartss' + `/${id}`);
   }
-
+// deleteCartbyfoodid(id:any){
+//   return this.httpClient.delete('/FoodApp/rcr1/users/carts/byfood' + `/${id}`);
+// }
 
 
   
